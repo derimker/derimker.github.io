@@ -66,6 +66,16 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
+
+        .interactive-image {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+        .interactive-image:hover {
+            transform: scale(1.04);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
     </style>
 </head>
 <body class="bg-[#FFF7ED] text-[#5D4037]">
@@ -162,7 +172,7 @@
             
             <div class="md:col-span-5">
                 <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="assets/2023-11-07-01.jpg" alt="Eduard Helmut bei der Arbeit mit seinen Bienen" class="w-full h-full object-cover">
+                    <img src="assets/2023-11-07-01.jpg" alt="Eduard Helmut bei der Arbeit mit seinen Bienen" class="w-full h-full object-cover interactive-image">
                 </div>
             </div>
         </div>
@@ -208,7 +218,7 @@
             <!-- Frühtracht -->
             <div class="honey-card bg-white rounded-3xl p-10 shadow-sm border border-[#8D5524]/10 group">
                 <div class="h-60 rounded-2xl overflow-hidden mb-9 bg-[#FFF7ED]">
-                    <img src="https://picsum.photos/id/160/900/700" alt="Frühtracht Honig" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://picsum.photos/id/160/900/700" alt="Frühtracht Honig" class="w-full h-full object-cover interactive-image">
                 </div>
                 <div class="flex justify-between items-start mb-5">
                     <div>
@@ -223,7 +233,7 @@
             <!-- Sommertracht -->
             <div class="honey-card bg-white rounded-3xl p-10 shadow-sm border border-[#8D5524]/10 group">
                 <div class="h-60 rounded-2xl overflow-hidden mb-9 bg-[#FFF7ED]">
-                    <img src="https://picsum.photos/id/251/900/700" alt="Sommertracht Honig" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://picsum.photos/id/251/900/700" alt="Sommertracht Honig" class="w-full h-full object-cover interactive-image">
                 </div>
                 <div class="flex justify-between items-start mb-5">
                     <div>
@@ -246,12 +256,12 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <img src="assets/2023-11-07-01.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover" alt="Eduard Helmut mit Carnica-Bienen">
-                <img src="assets/2023-11-07-02.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover" alt="Bienenstöcke in Freigericht">
-                <img src="assets/2023-11-07-05.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover" alt="Bienen auf Blüte">
-                <img src="assets/2023-11-07-06.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover" alt="Honigwaben">
-                <img src="assets/2023-11-07-03.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover" alt="Frühtracht Honig">
-                <img src="assets/2023-11-07-04.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover" alt="Sommertracht Honig">
+                <img src="assets/2023-11-07-01.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="Eduard Helmut mit Carnica-Bienen">
+                <img src="assets/2023-11-07-02.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="Bienenstöcke in Freigericht">
+                <img src="assets/2023-11-07-05.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="Bienen auf Blüte">
+                <img src="assets/2023-11-07-06.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="Honigwaben">
+                <img src="assets/2023-11-07-03.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="Frühtracht Honig">
+                <img src="assets/2023-11-07-04.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="Sommertracht Honig">
             </div>
         </div>
     </section>
