@@ -6,7 +6,7 @@
     <title>Eduard Helmut</title>
     <meta name="description" content="Eduard Helmut - Natürlicher Honig aus Freigericht. Carnica-Bienen und ehrlicher Honig direkt aus deiner Region.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐝</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,8 +21,9 @@
                         dark: '#1C1917',
                     },
                     fontFamily: {
-                        'serif': ['Playfair Display', 'serif'],
-                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'Georgia', 'serif'],
+                        'sans': ['Lora', 'Georgia', 'serif'],
+                        'body': ['Lora', 'Georgia', 'serif'],
                         'hand': ['Caveat', 'cursive'],
                     }
                 }
@@ -30,8 +31,14 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; }
+        html, body { overflow-x: hidden; }
+        body {
+            font-family: 'Lora', Georgia, serif;
+            background-color: #FFF7ED;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.25  0 0 0 0 0.13  0 0 0 0.09 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+        }
         .section-header { font-family: 'Playfair Display', Georgia, serif; }
+        .font-hand { font-family: 'Caveat', cursive; }
         
         .nav-link {
             position: relative;
@@ -68,7 +75,7 @@
         }
 
         .interactive-image {
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
                         box-shadow 0.4s ease;
             cursor: pointer;
         }
@@ -76,17 +83,69 @@
             transform: scale(1.04);
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
         }
+
+        .honeycomb-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 28 49'%3E%3Cg fill='none' stroke='%23F4A261' stroke-opacity='0.18' stroke-width='1.1'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5z'/%3E%3Cpath d='M0 15l12.98-7.5V0M0 33.5L12.98 41v8M15 0v7.5L27.99 15M15 49v-8l12.99-7.5'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* Jar label — double-rule border via inset shadow */
+        .jar-label {
+            background-color: #FFFAF1;
+            box-shadow:
+                inset 0 0 0 1px rgba(141, 85, 36, 0.18),
+                inset 0 0 0 5px #FFFAF1,
+                inset 0 0 0 6px rgba(141, 85, 36, 0.12),
+                0 1px 2px rgba(93, 64, 55, 0.05);
+        }
+        .jar-label:hover {
+            box-shadow:
+                inset 0 0 0 1px rgba(141, 85, 36, 0.22),
+                inset 0 0 0 5px #FFFAF1,
+                inset 0 0 0 6px rgba(141, 85, 36, 0.16),
+                0 25px 50px -12px rgba(93, 64, 55, 0.15);
+        }
+
+        /* Wax seal — slight tilt + ring */
+        .wax-seal {
+            background: radial-gradient(circle at 35% 30%, #F6B57A, #E8923C 70%, #C97A28 100%);
+            color: #3E2723;
+            box-shadow:
+                inset 0 -2px 6px rgba(93, 64, 55, 0.4),
+                inset 0 2px 4px rgba(255, 247, 237, 0.4),
+                0 6px 14px rgba(93, 64, 55, 0.25);
+        }
+
+        /* Small-caps lead-in — vintage book opener */
+        .lede {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #8D5524;
+            font-size: 0.82em;
+            margin-right: 0.2em;
+        }
+
+        /* Hand-drawn squiggle underline for Caveat accents */
+        .hand-underline {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'><path d='M2 5 Q20 1 40 4 T80 4 T118 3' fill='none' stroke='%23F4A261' stroke-width='2' stroke-linecap='round'/></svg>");
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 100% 0.4em;
+            padding-bottom: 0.25em;
+        }
     </style>
 </head>
 <body class="bg-[#FFF7ED] text-[#5D4037]">
 
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-[#8D5524]/10">
-        <div class="max-w-6xl mx-auto px-8 h-20 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-[#F4A261] rounded-2xl flex items-center justify-center text-white text-xl bee-float">🐝</div>
                 <div>
-                    <div class="font-semibold text-2xl tracking-tight">Eduard Helmut</div>
+                    <div class="font-semibold text-xl sm:text-2xl tracking-tight">Eduard Helmut</div>
                     <div class="text-[10px] text-[#8D5524]/60 -mt-1 tracking-[2px]">IMKEREI FREIGERICHT</div>
                 </div>
             </div>
@@ -114,7 +173,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-8 py-6 text-sm">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-5 sm:px-8 py-6 text-sm">
             <div class="flex flex-col gap-4">
                 <a href="#ueber-mich" class="py-1 hover:text-[#F4A261]">Über mich</a>
                 <a href="#bienen" class="py-1 hover:text-[#F4A261]">Bienen</a>
@@ -127,30 +186,45 @@
     </nav>
 
     <!-- Hero -->
-    <header class="relative min-h-[94vh] flex items-center justify-center text-white overflow-hidden" 
+    <header class="relative min-h-[94vh] flex items-center justify-center text-white overflow-hidden"
             style="background-image: url('assets/bienengarten.jpeg'); background-size: cover; background-position: center;">
-        <!-- Dark overlay for text readability -->
-        <div class="absolute inset-0 bg-[#5D4037]/75"></div>
+        <!-- Sepia/vintage tint stack -->
+        <div class="absolute inset-0 bg-[#3E2723]/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-[#F4A261]/15 via-transparent to-[#3E2723]/40"></div>
         <div class="absolute inset-0 bg-[radial-gradient(#F4A261_0.6px,transparent_1px)] bg-[length:5px_5px] opacity-[0.07]"></div>
-        
-        <div class="relative z-10 max-w-4xl px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-white/10 text-sm mb-8 backdrop-blur-md tracking-widest">
+        <!-- Soft vignette -->
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(62, 39, 35, 0.55) 100%);"></div>
+
+        <div class="relative z-10 max-w-4xl w-full px-5 sm:px-6 text-center">
+            <div class="font-hand text-2xl sm:text-3xl text-[#F4A261] mb-3 sm:mb-4">— frisch vom Bienengarten —</div>
+            <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full bg-white/10 text-xs sm:text-sm mb-6 sm:mb-8 backdrop-blur-md tracking-widest">
                 FREIGERICHT • HESSEN
             </div>
-            
-            <h1 class="text-6xl sm:text-7xl md:text-[92px] leading-none font-bold tracking-[-4px] sm:tracking-[-5.5px] mb-4">Eduard Helmut</h1>
-            <p class="text-2xl sm:text-3xl md:text-4xl text-[#F4A261] font-light tracking-tight mb-12">Natürlicher Honig aus deiner Region</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#honig" class="px-9 py-4 bg-white text-[#5D4037] font-semibold rounded-2xl hover:bg-[#F4A261] hover:text-white transition-all text-lg active:scale-[0.985]">
+
+            <h1 class="section-header text-5xl sm:text-6xl md:text-7xl lg:text-[92px] leading-none font-bold tracking-[-2px] sm:tracking-[-3px] md:tracking-[-4px] lg:tracking-[-5.5px] mb-4 break-words">Eduard Helmut</h1>
+            <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#F4A261] font-normal italic tracking-tight mb-10 sm:mb-12">Natürlicher Honig aus deiner Region</p>
+
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <a href="#honig" class="px-7 sm:px-9 py-3.5 sm:py-4 bg-white text-[#5D4037] font-semibold rounded-2xl hover:bg-[#F4A261] hover:text-white transition-all text-base sm:text-lg active:scale-[0.985]">
                     Honig entdecken
                 </a>
-                <a href="#ueber-mich" class="px-9 py-4 border border-white/40 hover:bg-white/10 font-medium rounded-2xl transition-all text-lg">
+                <a href="#ueber-mich" class="px-7 sm:px-9 py-3.5 sm:py-4 border border-white/40 hover:bg-white/10 font-medium rounded-2xl transition-all text-base sm:text-lg">
                     Meine Geschichte
                 </a>
             </div>
         </div>
-        
+
+        <!-- Wax seal badge -->
+        <div class="absolute bottom-8 right-6 sm:bottom-12 sm:right-12 hidden sm:block" aria-hidden="true">
+            <div class="wax-seal w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center -rotate-[10deg] border-[5px] border-[#FFF7ED]/85">
+                <div class="text-center leading-tight px-1">
+                    <div class="text-[8px] md:text-[9px] tracking-[2.5px] uppercase opacity-80">Echter</div>
+                    <div class="font-serif text-base md:text-lg font-bold italic">Honig</div>
+                    <div class="text-[8px] md:text-[9px] tracking-[2.5px] uppercase opacity-80">Hessen</div>
+                </div>
+            </div>
+        </div>
+
         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center text-xs tracking-[3px] opacity-60">
             <div>WEITER SCROLLEN</div>
             <div class="h-px w-8 bg-white mt-3"></div>
@@ -158,15 +232,20 @@
     </header>
 
     <!-- Über mich -->
-    <section id="ueber-mich" class="max-w-5xl mx-auto px-8 pt-24 pb-20">
-        <div class="grid md:grid-cols-12 gap-x-16 gap-y-12 items-center">
+    <section id="ueber-mich" class="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-14 sm:pb-20">
+        <div class="grid md:grid-cols-12 gap-x-16 gap-y-10 sm:gap-y-12 items-center">
             <div class="md:col-span-7">
                 <div class="uppercase tracking-[4px] text-xs text-[#F4A261] mb-4">SEIT VIELEN JAHREN</div>
-                <h2 class="section-header text-7xl leading-[0.95] tracking-[-2.5px] mb-9">Ich bin Eduard.<br>Imker aus Leidenschaft.</h2>
-                
-                <div class="max-w-lg text-xl text-[#5D4037]/90 space-y-7">
-                    <p>In Freigericht pflege ich meine Carnica-Bienen mit Respekt und Geduld. Keine Chemikalien. Keine Kompromisse. Nur ehrlicher, natürlicher Honig.</p>
+                <h2 class="section-header text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] sm:leading-[0.95] tracking-tight md:tracking-[-2.5px] mb-7 sm:mb-9">Ich bin Eduard.<br>Imker aus Leidenschaft.</h2>
+
+                <div class="max-w-lg text-lg sm:text-xl text-[#5D4037]/90 space-y-5 sm:space-y-7">
+                    <p><span class="lede">In Freigericht</span> pflege ich meine Carnica-Bienen mit Respekt und Geduld. Keine Chemikalien. Keine Kompromisse. Nur ehrlicher, natürlicher Honig.</p>
                     <p>Mein Ziel ist es, dir den echten Geschmack deiner Region direkt ins Glas zu bringen.</p>
+                </div>
+
+                <div class="mt-8 sm:mt-10 flex items-end gap-4">
+                    <div class="font-hand text-5xl sm:text-6xl text-[#8D5524] leading-none -rotate-[4deg]">Eduard</div>
+                    <div class="pb-1 text-xs uppercase tracking-[3px] text-[#5D4037]/50">Imker · Freigericht</div>
                 </div>
             </div>
             
@@ -179,31 +258,63 @@
     </section>
 
     <!-- Bienen -->
-    <section id="bienen" class="bg-white py-20">
-        <div class="max-w-5xl mx-auto px-8">
-            <div class="max-w-2xl mb-12">
+    <section id="bienen" class="bg-white py-14 sm:py-20">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8">
+            <div class="max-w-2xl mb-10 sm:mb-12">
                 <div class="uppercase tracking-[3px] text-xs text-[#F4A261]">MEINE TIERE</div>
-                <h3 class="section-header text-6xl tracking-[-1.5px] mt-2">Carnica-Bienen</h3>
-                <p class="mt-4 text-lg text-[#5D4037]/80">
-                    Die Carnica ist eine der beliebtesten Bienenrassen in Mitteleuropa. 
+                <h3 class="section-header text-4xl sm:text-5xl md:text-6xl tracking-tight md:tracking-[-1.5px] mt-2">Carnica-Bienen</h3>
+                <p class="mt-4 text-base sm:text-lg text-[#5D4037]/80">
+                    Die Carnica ist eine der beliebtesten Bienenrassen in Mitteleuropa.
                     Ich habe mich bewusst für sie entschieden, wegen ihrer Sanftmut, ihrer Robustheit und weil sie hervorragend an unser Klima angepasst ist.
                 </p>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-9 border border-[#8D5524]/10 rounded-3xl">
-                    <div class="text-5xl mb-8">🌿</div>
-                    <div class="font-semibold text-2xl mb-3 tracking-tight">Sanft &amp; friedlich</div>
+
+            <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
+                <div class="p-6 sm:p-8 md:p-9 border border-[#8D5524]/15 rounded-3xl bg-[#FFFAF1]">
+                    <div class="text-[#8D5524] mb-6 sm:mb-8" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 55 C 14 32 28 16 56 9 C 54 32 40 50 9 55 Z"/>
+                            <path d="M9 55 C 22 44 36 30 50 16"/>
+                            <path d="M18 44 L 22 38"/>
+                            <path d="M26 36 L 31 30"/>
+                            <path d="M35 26 L 41 21"/>
+                        </svg>
+                    </div>
+                    <div class="section-header font-bold text-2xl sm:text-3xl mb-3 tracking-tight">Sanft &amp; friedlich</div>
                     <p class="text-[#5D4037]/80">Carnica-Bienen sind besonders ruhig und friedfertig. Das macht die Arbeit mit ihnen angenehm und sicher, auch für Anfänger.</p>
                 </div>
-                <div class="p-9 border border-[#8D5524]/10 rounded-3xl">
-                    <div class="text-5xl mb-8">❄️</div>
-                    <div class="font-semibold text-2xl mb-3 tracking-tight">Winterhart &amp; robust</div>
+                <div class="p-6 sm:p-8 md:p-9 border border-[#8D5524]/15 rounded-3xl bg-[#FFFAF1]">
+                    <div class="text-[#8D5524] mb-6 sm:mb-8" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="32" y1="6" x2="32" y2="58"/>
+                            <line x1="6" y1="32" x2="58" y2="32"/>
+                            <line x1="13" y1="13" x2="51" y2="51"/>
+                            <line x1="13" y1="51" x2="51" y2="13"/>
+                            <path d="M32 6 L 28 12 M32 6 L 36 12 M32 58 L 28 52 M32 58 L 36 52"/>
+                            <path d="M6 32 L 12 28 M6 32 L 12 36 M58 32 L 52 28 M58 32 L 52 36"/>
+                            <path d="M19 19 L 14 20 M19 19 L 20 14 M45 19 L 50 20 M45 19 L 44 14"/>
+                            <path d="M19 45 L 14 44 M19 45 L 20 50 M45 45 L 50 44 M45 45 L 44 50"/>
+                        </svg>
+                    </div>
+                    <div class="section-header font-bold text-2xl sm:text-3xl mb-3 tracking-tight">Winterhart &amp; robust</div>
                     <p class="text-[#5D4037]/80">Sie überstehen auch harte Winter problemlos und sind sehr widerstandsfähig gegen Krankheiten. Ideal für die Region Freigericht.</p>
                 </div>
-                <div class="p-9 border border-[#8D5524]/10 rounded-3xl">
-                    <div class="text-5xl mb-8">🌼</div>
-                    <div class="font-semibold text-2xl mb-3 tracking-tight">Hochproduktiv</div>
+                <div class="p-6 sm:p-8 md:p-9 border border-[#8D5524]/15 rounded-3xl bg-[#FFFAF1]">
+                    <div class="text-[#8D5524] mb-6 sm:mb-8" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="32" cy="32" r="6"/>
+                            <ellipse cx="32" cy="14" rx="7" ry="10"/>
+                            <ellipse cx="32" cy="50" rx="7" ry="10"/>
+                            <ellipse cx="14" cy="32" rx="10" ry="7"/>
+                            <ellipse cx="50" cy="32" rx="10" ry="7"/>
+                            <ellipse cx="19" cy="19" rx="9" ry="6.5" transform="rotate(-45 19 19)"/>
+                            <ellipse cx="45" cy="19" rx="9" ry="6.5" transform="rotate(45 45 19)"/>
+                            <ellipse cx="19" cy="45" rx="9" ry="6.5" transform="rotate(45 19 45)"/>
+                            <ellipse cx="45" cy="45" rx="9" ry="6.5" transform="rotate(-45 45 45)"/>
+                            <circle cx="32" cy="32" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="section-header font-bold text-2xl sm:text-3xl mb-3 tracking-tight">Hochproduktiv</div>
                     <p class="text-[#5D4037]/80">Durch ihre hohe Sammelleistung und gute Orientierung bringen meine Völker jedes Jahr hervorragende Honigerträge.</p>
                 </div>
             </div>
@@ -211,61 +322,95 @@
     </section>
 
     <!-- Honig -->
-    <section id="honig" class="max-w-5xl mx-auto px-8 py-24">
-        <div class="text-center mb-16">
+    <section id="honig" class="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+        <div class="text-center mb-12 sm:mb-16">
             <div class="uppercase tracking-[3px] text-xs text-[#F4A261]">AUS FREIGERICHT</div>
-            <h2 class="section-header text-7xl tracking-[-2px] mt-3">Mein Honig</h2>
-            <p class="mt-4 text-2xl text-[#5D4037]/70">Zwei Sorten. Rein. Natürlich. Regional.</p>
+            <h2 class="section-header text-5xl sm:text-6xl md:text-7xl tracking-tight md:tracking-[-2px] mt-3">Mein Honig</h2>
+            <p class="mt-4 text-lg sm:text-xl md:text-2xl text-[#5D4037]/70">Zwei Sorten. Rein. Natürlich. Regional.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 sm:gap-10 pt-6">
             <!-- Frühtracht -->
-            <div class="honey-card bg-white rounded-3xl p-10 shadow-sm border border-[#8D5524]/10 group">
-                <div class="h-60 rounded-2xl mb-9 bg-[#F4A261]/10 flex items-center justify-center border border-[#F4A261]/20">
+            <div class="honey-card jar-label relative rounded-3xl p-7 sm:p-9 md:p-11 group">
+                <!-- Wax seal -->
+                <div class="wax-seal absolute -top-5 right-6 sm:right-8 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center -rotate-[8deg] border-[4px] border-[#FFFAF1]" aria-hidden="true">
+                    <div class="text-center leading-tight px-1">
+                        <div class="text-[8px] sm:text-[9px] tracking-[2px] uppercase opacity-80">Ernte</div>
+                        <div class="font-serif text-base sm:text-lg font-bold italic">Mai</div>
+                    </div>
+                </div>
+
+                <div class="h-48 sm:h-60 rounded-2xl mb-7 sm:mb-9 bg-[#F4A261]/10 flex items-center justify-center border border-dashed border-[#F4A261]/30">
                     <div class="text-center">
                         <div class="text-4xl mb-2">🍯</div>
-                        <div class="text-sm text-[#8D5524]">Honigfoto folgt</div>
+                        <div class="text-sm text-[#8D5524] font-hand text-lg">Honigfoto folgt</div>
                     </div>
                 </div>
-                <div class="flex justify-between items-start mb-5">
-                    <div>
-                        <div class="font-semibold text-4xl tracking-tight">Frühtracht</div>
-                        <div class="text-[#F4A261] mt-1">Mai • Mild &amp; blumig</div>
-                    </div>
-                    <div class="px-5 py-1.5 text-sm bg-[#F4A261]/10 text-[#8D5524] rounded-full">Verfügbar</div>
+                <div class="mb-4">
+                    <div class="section-header font-bold text-3xl sm:text-4xl tracking-tight">Frühtracht</div>
+                    <div class="text-[#8D5524] mt-1 italic">Mild &amp; blumig</div>
                 </div>
-                <p class="text-[#5D4037]/80 text-lg">Zarter, blumiger Honig aus den ersten Blüten des Jahres. Perfekt zum Frühstück und für alle, die es etwas milder mögen.</p>
+                <p class="text-[#5D4037]/80 text-base sm:text-lg">Zarter, blumiger Honig aus den ersten Blüten des Jahres. Perfekt zum Frühstück und für alle, die es etwas milder mögen.</p>
+                <div class="mt-6 pt-4 border-t border-dashed border-[#8D5524]/25 text-[11px] uppercase tracking-[3px] text-[#8D5524]/80">
+                    Verfügbar · direkt vom Imker
+                </div>
             </div>
 
             <!-- Sommertracht -->
-            <div class="honey-card bg-white rounded-3xl p-10 shadow-sm border border-[#8D5524]/10 group">
-                <div class="h-60 rounded-2xl mb-9 bg-[#F4A261]/10 flex items-center justify-center border border-[#F4A261]/20">
+            <div class="honey-card jar-label relative rounded-3xl p-7 sm:p-9 md:p-11 group">
+                <!-- Wax seal -->
+                <div class="wax-seal absolute -top-5 right-6 sm:right-8 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center rotate-[8deg] border-[4px] border-[#FFFAF1]" aria-hidden="true">
+                    <div class="text-center leading-tight px-1">
+                        <div class="text-[8px] sm:text-[9px] tracking-[2px] uppercase opacity-80">Ernte</div>
+                        <div class="font-serif text-base sm:text-lg font-bold italic">August</div>
+                    </div>
+                </div>
+
+                <div class="h-48 sm:h-60 rounded-2xl mb-7 sm:mb-9 bg-[#F4A261]/10 flex items-center justify-center border border-dashed border-[#F4A261]/30">
                     <div class="text-center">
                         <div class="text-4xl mb-2">🍯</div>
-                        <div class="text-sm text-[#8D5524]">Honigfoto folgt</div>
+                        <div class="text-sm text-[#8D5524] font-hand text-lg">Honigfoto folgt</div>
                     </div>
                 </div>
-                <div class="flex justify-between items-start mb-5">
-                    <div>
-                        <div class="font-semibold text-4xl tracking-tight">Sommertracht</div>
-                        <div class="text-[#F4A261] mt-1">August • Kräftig &amp; aromatisch</div>
-                    </div>
-                    <div class="px-5 py-1.5 text-sm bg-[#F4A261]/10 text-[#8D5524] rounded-full">Saisonbedingt</div>
+                <div class="mb-4">
+                    <div class="section-header font-bold text-3xl sm:text-4xl tracking-tight">Sommertracht</div>
+                    <div class="text-[#8D5524] mt-1 italic">Kräftig &amp; aromatisch</div>
                 </div>
-                <p class="text-[#5D4037]/80 text-lg">Voller, intensiver Geschmack aus den Sommerblüten Freigerichts. Für alle, die kräftigen Honig lieben.</p>
+                <p class="text-[#5D4037]/80 text-base sm:text-lg">Voller, intensiver Geschmack aus den Sommerblüten Freigerichts. Für alle, die kräftigen Honig lieben.</p>
+                <div class="mt-6 pt-4 border-t border-dashed border-[#8D5524]/25 text-[11px] uppercase tracking-[3px] text-[#8D5524]/80">
+                    Saisonbedingt · in begrenzter Menge
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Pull quote -->
+    <aside class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20 text-center" aria-label="Imkerwort">
+        <div class="flex justify-center mb-6 sm:mb-8" aria-hidden="true">
+            <svg width="120" height="22" viewBox="0 0 120 22" fill="none" class="text-[#8D5524]/40">
+                <path d="M2 11 L 35 11" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <path d="M85 11 L 118 11" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <path d="M44 11 L 50 4 L 56 11 L 50 18 Z" stroke="currentColor" stroke-width="1" fill="none"/>
+                <path d="M57 11 L 63 4 L 69 11 L 63 18 Z" stroke="currentColor" stroke-width="1" fill="#F4A261" fill-opacity="0.25"/>
+                <path d="M70 11 L 76 4 L 82 11 L 76 18 Z" stroke="currentColor" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <blockquote class="font-hand text-4xl sm:text-5xl md:text-6xl text-[#8D5524] leading-[1.1]">
+            „Wo Bienen sind, dort ist Leben."
+        </blockquote>
+        <div class="mt-5 sm:mt-6 uppercase tracking-[3px] text-[10px] sm:text-xs text-[#5D4037]/60">— altes Imkerwort</div>
+    </aside>
+
     <!-- Galerie -->
-    <section id="galerie" class="bg-[#5D4037] text-white py-20">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="mb-12">
+    <section id="galerie" class="relative bg-[#5D4037] text-white py-14 sm:py-20 overflow-hidden">
+        <div class="absolute inset-0 honeycomb-bg pointer-events-none" aria-hidden="true"></div>
+        <div class="relative max-w-6xl mx-auto px-5 sm:px-8">
+            <div class="mb-10 sm:mb-12">
                 <div class="uppercase tracking-[3px] text-xs text-[#F4A261]">EINBLICKE</div>
-                <h3 class="section-header text-6xl tracking-tight mt-2">Aus meinem Alltag</h3>
+                <h3 class="section-header text-4xl sm:text-5xl md:text-6xl tracking-tight mt-2">Aus meinem Alltag</h3>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <img src="assets/koenigin_gelb.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="koenigin_gelb.jpg">
                 <img src="assets/bienenstock.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="bienenstock.jpg">
                 <img src="assets/bienenwabe_1.jpg" class="rounded-3xl w-full aspect-[4/3] object-cover interactive-image" alt="bienenwabe_1.jpg">
@@ -276,25 +421,36 @@
         </div>
     </section>
 
-    <!-- Kontakt -->
-    <section id="kontakt" class="max-w-3xl mx-auto px-8 py-24 text-center">
-        <div class="mb-10">
-            <div class="uppercase tracking-[3px] text-xs text-[#F4A261]">SPRECHEN WIR</div>
-            <h2 class="section-header text-7xl tracking-[-1.5px] mt-4">Lust auf guten Honig?</h2>
-        </div>
-        
-        <p class="text-2xl text-[#5D4037]/70 mb-12 max-w-xs mx-auto">Schreib mir gerne. Ich freue mich auf deine Nachricht.</p>
+    <!-- Honeycomb divider -->
+    <div class="flex justify-center py-10 sm:py-14" aria-hidden="true">
+        <svg width="140" height="22" viewBox="0 0 140 22" fill="none" class="text-[#8D5524]/40">
+            <path d="M2 11 L 45 11" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            <path d="M95 11 L 138 11" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            <path d="M54 11 L 60 4 L 66 11 L 60 18 Z" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M67 11 L 73 4 L 79 11 L 73 18 Z" stroke="currentColor" stroke-width="1" fill="#F4A261" fill-opacity="0.3"/>
+            <path d="M80 11 L 86 4 L 92 11 L 86 18 Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+    </div>
 
-        <div class="space-y-2 text-xl">
+    <!-- Kontakt -->
+    <section id="kontakt" class="max-w-3xl mx-auto px-5 sm:px-8 pt-2 pb-16 sm:pb-24 text-center">
+        <div class="mb-8 sm:mb-10">
+            <div class="uppercase tracking-[3px] text-xs text-[#F4A261]">SPRECHEN WIR</div>
+            <h2 class="section-header text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight md:tracking-[-1.5px] mt-4">Lust auf guten Honig?</h2>
+        </div>
+
+        <p class="text-lg sm:text-xl md:text-2xl text-[#5D4037]/70 mb-10 sm:mb-12 max-w-xs mx-auto">Schreib mir gerne. Ich freue mich auf deine Nachricht.</p>
+
+        <div class="space-y-2 text-base sm:text-xl">
             <!-- Email senden Funktion vorerst deaktiviert (wird später mit echtem Mail-Setup aktiviert) -->
             <!--
-            <a href="mailto:eduard.helmut@platzhalter" 
+            <a href="mailto:email-folgt@imkerei-helmut.de"
                class="inline-block bg-[#8D5524] text-white font-medium px-8 py-3 rounded-2xl hover:bg-[#5D4037] active:scale-[0.985] transition-all shadow-md hover:shadow-lg">
-                eduard.helmut@platzhalter
+                email-folgt@imkerei-helmut.de
             </a>
             -->
-            <div class="inline-block bg-[#8D5524]/60 text-white font-medium px-8 py-3 rounded-2xl cursor-not-allowed opacity-80">
-                eduard.helmut@platzhalter
+            <div class="inline-block max-w-full break-all bg-[#8D5524]/60 text-white font-medium px-6 sm:px-8 py-3 rounded-2xl cursor-not-allowed opacity-80">
+                email-folgt@imkerei-helmut.de
             </div>
             <div class="text-sm text-[#5D4037]/50 pt-1">Freigericht, Hessen</div>
         </div>
@@ -304,8 +460,26 @@
         </div>
     </section>
 
-    <footer class="border-t py-10 text-center text-xs text-[#5D4037]/50 tracking-wider">
-        © 1967 Eduard Helmut — Natürlicher Honig aus Freigericht
+    <footer class="border-t border-[#8D5524]/15 py-12 sm:py-14 text-center text-[#5D4037]/70">
+        <!-- EH wax-stamp monogram -->
+        <div class="flex justify-center mb-5" aria-hidden="true">
+            <div class="wax-seal w-16 h-16 rounded-full flex items-center justify-center -rotate-[6deg] border-[3px] border-[#FFF7ED]">
+                <span class="section-header text-xl font-bold italic">EH</span>
+            </div>
+        </div>
+
+        <div class="font-hand text-2xl sm:text-3xl text-[#8D5524] leading-none">Natürlicher Honig aus Freigericht</div>
+
+        <!-- Honeycomb flourish -->
+        <div class="flex justify-center gap-1.5 mt-5 opacity-50" aria-hidden="true">
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M7 1 L 13 4.5 V 11.5 L 7 15 L 1 11.5 V 4.5 Z" stroke="#8D5524" stroke-width="1"/></svg>
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M7 1 L 13 4.5 V 11.5 L 7 15 L 1 11.5 V 4.5 Z" stroke="#8D5524" stroke-width="1" fill="#F4A261" fill-opacity="0.4"/></svg>
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M7 1 L 13 4.5 V 11.5 L 7 15 L 1 11.5 V 4.5 Z" stroke="#8D5524" stroke-width="1"/></svg>
+        </div>
+
+        <div class="mt-5 text-[10px] sm:text-xs uppercase tracking-[3px] text-[#5D4037]/50">
+            © 1967 Eduard Helmut · Imker aus Leidenschaft
+        </div>
     </footer>
 
     <!-- Image Lightbox Modal -->
